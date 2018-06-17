@@ -76,6 +76,8 @@ namespace GoogleARCore.Examples.HelloAR
 
         public Text textBox;
 
+        private long lastUpdated = 0;
+
         /// <summary>
         /// The Unity Update() method.
         /// </summary>
@@ -104,6 +106,13 @@ namespace GoogleARCore.Examples.HelloAR
                 return;
             }
 
+            var timeNow = new System.DateTime().Ticks;
+
+            if (new System.TimeSpan(timeNow - lastUpdated).TotalSeconds > 3.0)
+            {
+                textBox.text = "";
+            }
+
             // Raycast against the location the player touched to search for planes.
             TrackableHit hit;
             TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
@@ -111,6 +120,8 @@ namespace GoogleARCore.Examples.HelloAR
 
             if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
             {
+                textBox.text = "";
+
                 // Use hit pose and camera pose to check if hittest is from the
                 // back of the plane, if it is, no need to create the anchor.
                 if ((hit.Trackable is DetectedPlane) &&
@@ -148,6 +159,7 @@ namespace GoogleARCore.Examples.HelloAR
                         {
                             Debug.Log("in my if");
                             textBox.text = hits.collider.transform.name;
+                            lastUpdated = new System.DateTime().Ticks;
                         }
                     }
                 }

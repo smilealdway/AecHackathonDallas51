@@ -267,7 +267,7 @@ MonoBehaviour:
   FirstPersonCamera: {fileID: 896679035}
   DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 2}
-  AndyAndroidPrefab: {fileID: 1821896143320088, guid: 64c82f9c3bc202a46865cbf2d4b464ca,
+  AndyAndroidPrefab: {fileID: 1790597113680616, guid: e7269a3a2f0c55a409646855d69ac08d,
     type: 2}
   SearchingForPlaneUI: {fileID: 1133631540}
   textBox: {fileID: 1437446532}
