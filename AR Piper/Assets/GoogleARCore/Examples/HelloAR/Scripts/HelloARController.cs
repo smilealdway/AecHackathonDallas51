@@ -147,7 +147,7 @@ namespace GoogleARCore.Examples.HelloAR
                         if (hits.collider != null)
                         {
                             Debug.Log("in my if");
-                            textBox.text = "ABCDJELF";//hits.collider.transform.name;
+                            textBox.text = hits.collider.transform.name;
                         }
                     }
                 }
